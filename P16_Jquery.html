@@ -1,0 +1,98 @@
+<!-- Using JQuery Implement:
+
+Selecting Element, Getting Values, Setting Values.
+
+li. Events.
+
+Program: -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>jQuery Example</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+<h2>jQuery Example</h2>
+
+<!-- i) Selecting Elements, Getting Values, and Setting Values. -->
+
+<div>
+
+<label for="inputField">Enter your name:</label>
+
+<input type="text" id="inputField" placeholder="Enter your name">
+
+<button id="submitButton">Submit</button>
+
+</div>
+
+<div id="output"></div>
+
+<script>
+
+// i) Selecting Elements, Getting Values, and Setting Values.
+
+$(document).ready(function() {
+
+// Selecting elements
+
+var inputField = $('#inputField');
+
+var outputDiv = $('#output');
+
+// Getting and setting values
+
+$('#submitButton').click(function(){
+
+var name = inputField.val();
+
+outputDiv.text("Hello, " + name + "!"); });
+
+});
+
+// ii) Events.
+
+$(document).ready(function() {
+
+// Click event example
+
+$('#output').click(function() {
+
+alert('Output div was clicked!');
+
+});
+// Mouse enter event example
+
+$('#output').mouseenter(function() {
+
+$(this).css('background-color', 'lightblue');
+
+});
+
+// Mouse leave event example
+
+$('#output').mouseleave(function() {
+
+$(this).css('background-color', 'white');
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>

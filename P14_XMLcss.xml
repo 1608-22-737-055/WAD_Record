@@ -1,0 +1,15 @@
+<?xml-stylesheet type="text/css" href="msgfile.css"?>
+<messages>
+    <message>
+        <to>John</to>
+        <from>smith</from>
+        <subject>Subject 1</subject>
+        <body>This Message is from body-1</body>
+    </message>
+    <message>
+        <to>Kate</to>
+        <from>Henry</from>
+        <subject>Subject 2</subject>
+        <body>This Message is from body-2</body>
+    </message>
+</messages>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope, $http) {
+            $scope.user = {};
+            $scope.submitForm = function() {
+                $http.post('/api/submit', $scope.user)
+                .then(function(response) {
+                    console.log(response.data);
+                    alert(response.data.message);
+                }, function(error) {
+                    console.error(error);
+                });
+            };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <h2>Input Validation and Backend Building with AngularJS</h2>
+        <form name="myForm" ng-submit="submitForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="user.name" required>
+            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                <span ng-show="myForm.name.$error.required">Name is required.</span>
+            </span>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

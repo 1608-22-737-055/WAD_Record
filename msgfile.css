@@ -1,0 +1,28 @@
+message {
+    display: block;
+    margin-top: 100px;
+    border: 50px solid blue;
+    width: 50%;
+    margin-left: 200px;
+    background-color: #aa44dd;
+}
+
+to, from {
+    display: block;
+    font-size: 50px;
+    margin-left: 50px;
+    color: white;
+}
+
+subject {
+    font-size: 60px;
+    margin-left: 75px;
+    color: yellow;
+}
+
+body {
+    display: block;
+    font-size: 40px;
+    margin-left: 90px;
+    color: red;
+}
