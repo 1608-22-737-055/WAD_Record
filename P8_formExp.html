@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Form Example</title>
+
+</head>
+
+<body>
+
+<form>
+
+<fieldset>
+
+<legend>Personal Details</legend>
+
+<label>Enter First name:</label>
+
+<input type="text" /><br>
+
+<label>Enter Last name:</label>
+
+<input type="text" /><br>
+
+<label>Enter Mobile:</label>
+
+Matrusri Eng
+
+<input type="tel" required pattern="[9]{1}[0-9]{9}" /><br>
+
+<label>Enter email:</label>
+
+<input type="email" /><br>
+
+<label>Enter address:</label>
+
+<textarea rows="5" cols="10"></textarea>><br>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Other form input elements</legend>
+
+<label>Select date:</label>
+
+<input type="date"><br>
+
+<label>Enter password:</label>
+
+<input type="password"><br> <label>Select Gender:</label>
+
+<input type="radio" name="gender"> Male<br>
+
+<input type="radio" name="gender"> Female<br>
+
+<label>Hobbies:</label>
+
+<input type="checkbox">Reading books <br>
+
+<input type="checkbox">Browsing net <br>
+
+<input type="checkbox">playing <br>
+
+<label>Select color:</label>
+
+<input type="color"> <br>
+
+<label>Select number from 1 to 10:</label>
+
+<input type="number" max="10" min="1"><br>
+
+<label>Give a valid URL:</label>
+
+<input type="url"><br>
+
+<label>Select a week:</label>
+
+<input type="week"> <br>
+
+<label>Select branch:</label>
+
+<select>
+
+<option>CSE</option>
+
+<option>EEE</option>
+
+<option>ECE</option>
+
+</select>
+
+<label>Select branch using datalist:</label>
+
+<input list "branch">
+
+<datalist id="branch">
+
+<option>CSE</option>
+
+<option>EEE</option>
+<option>ECE</option>
+
+</datalist><br>
+
+<label>Select a file to upload:</label>
+
+<input type="file">
+
+</fieldset>
+
+<input type="submit" value="Submit Form" >
+
+</form>
+
+<input type="reset" value="Clear form">
+
+</body>
+
+</html>
