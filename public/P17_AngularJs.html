@@ -5,34 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AngularJS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <h2>Input Validation and Backend Building with AngularJS</h2>
+        <!-- i) Input Validation -->
+        <form name="myForm" ng-submit="submitForm()">
+            <label>Name:</label>
+            <input type="text" ng-model="user.name" required>
+            <span ng-show="myForm.name.$error.required && myForm.name.$dirty">Name is required!</span>
+            <br>
+            <label>Email:</label>
+            <input type="email" ng-model="user.email" required>
+            <span ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required!</span>
+            <span ng-show="myForm.email.$error.email && myForm.email.$dirty">Invalid email format!</span>
+            <br>
+            <button type="submit" ng-disabled="myForm.$invalid">Submit</button>
+        </form>
+        <!-- ii) Backend Building -->
+        <div>
+            <h3>Backend Response:</h3>
+            <p>{{ backendResponse }}</p>
+        </div>
+    </div>
     <script>
         var app = angular.module('myApp', []);
         app.controller('myController', function($scope, $http) {
             $scope.user = {};
             $scope.submitForm = function() {
+                // Simulating backend request with $http
                 $http.post('/api/submit', $scope.user)
                 .then(function(response) {
-                    console.log(response.data);
-                    alert(response.data.message);
-                }, function(error) {
-                    console.error(error);
+                    $scope.backendResponse = response.data.message;
+                })
+                .catch(function(error) {
+                    $scope.backendResponse = "Error: " + error.data.message;
                 });
             };
         });
     </script>
-</head>
-<body>
-    <div ng-controller="myController">
-        <h2>Input Validation and Backend Building with AngularJS</h2>
-        <form name="myForm" ng-submit="submitForm()">
-            <label for="name">Name:</label>
-            <input type="text" id="name" ng-model="user.name" required>
-            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
-                <span ng-show="myForm.name.$error.required">Name is required.</span>
-            </span>
-            <br>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
 </body>
 </html>
