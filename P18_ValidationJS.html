@@ -4,33 +4,37 @@
 <head>
     <script>
         function Validation() {
-            var name = document.forms['RegForm'].Name.value;
-            var email = document.forms['RegForm'].Email.value;
-            var password = document.forms['RegForm'].Password.value;
+            const form = document.forms['RegForm'];
+            const name = form.Name.value.trim();
+            const email = form.Email.value.trim();
+            const password = form.Password.value.trim();
 
-            var regName = /^[a-zA-Z ]+$/;
-            var regEmail = /^[^@]+@[^@]+\.[^@]+$/;
-            var regPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Minimum 8 characters, at least one letter and one number
+            const regName = /^[a-zA-Z ]+$/;
+            const regEmail = /^[^@]+@[^@]+\.[^@]+$/;
+            const regPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Minimum 8 characters, at least one letter and one number
 
-            if (name == "" || !regName.test(name)) {
-                window.alert("Please enter your name properly.");
-                document.forms['RegForm'].Name.focus();
+            if (!regName.test(name)) {
+                alert("Please enter your name properly.");
+                form.Name.focus();
                 return false;
             }
-            if (email == "" || !regEmail.test(email)) {
-                window.alert("Please enter a valid e-mail address.");
-                document.forms['RegForm'].Email.focus();
+            if (!regEmail.test(email)) {
+                alert("Please enter a valid e-mail address.");
+                form.Email.focus();
                 return false;
             }
-            if (password == "" || !regPassword.test(password)) {
-                window.alert("Please enter a valid password. Minimum 8 characters, at least one letter and one number.");
-                document.forms['RegForm'].Password.focus();
+            if (!regPassword.test(password)) {
+                alert("Please enter a valid password. Minimum 8 characters, at least one letter and one number.");
+                form.Password.focus();
                 return false;
             }
             return true;
         }
     </script>
     <style>
+        body{
+            font-size: 20px;
+        }
         input {
             border-radius: 10px;
             padding: 5px;
