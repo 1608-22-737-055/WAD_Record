@@ -10,6 +10,7 @@
 
             var regName = /^[a-zA-Z ]+$/;
             var regEmail = /^[^@]+@[^@]+\.[^@]+$/;
+            var regPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Minimum 8 characters, at least one letter and one number
 
             if (name == "" || !regName.test(name)) {
                 window.alert("Please enter your name properly.");
@@ -21,8 +22,8 @@
                 document.forms['RegForm'].Email.focus();
                 return false;
             }
-            if (password == "") {
-                alert("Please enter your password");
+            if (password == "" || !regPassword.test(password)) {
+                window.alert("Please enter a valid password. Minimum 8 characters, at least one letter and one number.");
                 document.forms['RegForm'].Password.focus();
                 return false;
             }
@@ -30,17 +31,13 @@
         }
     </script>
     <style>
-        div {
-            box-sizing: border-box;
-            width: 100%;
-            border: 100px solid black;
-            float: left;
-            align-content: center;
-            align-items: center;
+        input {
+            border-radius: 10px;
+            padding: 5px;
         }
 
         form {
-            margin: 0 auto;
+            margin: auto;
             width: 600px;
         }
     </style>
@@ -49,13 +46,13 @@
 <body>
     <h1 style="text-align:center">REGISTRATION FORM</h1>
     <form name="RegForm" onsubmit="return Validation()" method="post">
-        <p>Name:<input type="text" size="65" name="Name" /></p>
+        <p>Name: <input type="text" size="65" name="Name" /></p>
         <br />
-        <p>Address:<input type="text" size="65" name="Address" /></p>
+        <p>Address: <input type="text" size="65" name="Address" /></p>
         <br />
-        <p>Email:<input type="text" size="65" name="Email" /></p>
+        <p>Email: <input type="text" size="65" name="Email" /></p>
         <br />
-        <p>Password:<input type="password" size="65" name="Password" /></p>
+        <p>Password: <input type="password" size="65" name="Password" /></p>
         <br />
         <p>
             <input type="submit" value="send" name="Submit" />
