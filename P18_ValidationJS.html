@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function Validation() {
+            var name = document.forms['RegForm'].Name.value;
+            var email = document.forms['RegForm'].Email.value;
+            var password = document.forms['RegForm'].Password.value;
+
+            var regName = /^[a-zA-Z ]+$/;
+            var regEmail = /^[^@]+@[^@]+\.[^@]+$/;
+
+            if (name == "" || !regName.test(name)) {
+                window.alert("Please enter your name properly.");
+                document.forms['RegForm'].Name.focus();
+                return false;
+            }
+            if (email == "" || !regEmail.test(email)) {
+                window.alert("Please enter a valid e-mail address.");
+                document.forms['RegForm'].Email.focus();
+                return false;
+            }
+            if (password == "") {
+                alert("Please enter your password");
+                document.forms['RegForm'].Password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 100%;
+            border: 100px solid black;
+            float: left;
+            align-content: center;
+            align-items: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center">REGISTRATION FORM</h1>
+    <form name="RegForm" onsubmit="return Validation()" method="post">
+        <p>Name:<input type="text" size="65" name="Name" /></p>
+        <br />
+        <p>Address:<input type="text" size="65" name="Address" /></p>
+        <br />
+        <p>Email:<input type="text" size="65" name="Email" /></p>
+        <br />
+        <p>Password:<input type="password" size="65" name="Password" /></p>
+        <br />
+        <p>
+            <input type="submit" value="send" name="Submit" />
+            <input type="reset" value="Reset" name="Reset" />
+        </p>
+    </form>
+</body>
+
+</html>
